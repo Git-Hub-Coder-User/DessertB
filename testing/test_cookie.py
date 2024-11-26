@@ -13,3 +13,4 @@ def test_Cookie():
     assert item1.name == "Chocolate chip cookies"
     assert item2.quantity == 10
     assert item3.price_per_dozen == 3.00
+    assert item1.packaging == "Box"

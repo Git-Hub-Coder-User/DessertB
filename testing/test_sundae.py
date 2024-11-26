@@ -15,3 +15,4 @@ def test_Sundae():
     assert item2.price_per_scoop == 1.00
     assert item3.topping_name == "Cherry"
     assert item3.topping_price == 3.00
+    assert item1.packaging == "Boat"

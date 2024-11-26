@@ -13,3 +13,4 @@ def test_Candy():
     assert item1.name == "Lollipop"
     assert item2.candy_weight == 1.0
     assert item3.price_per_pound == 3.00
+    assert item1.packaging == "Bag"

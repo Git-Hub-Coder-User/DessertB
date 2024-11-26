@@ -13,3 +13,4 @@ def test_IceCream():
     assert item1.name == "Vanilla"
     assert item2.scoop_count == 2
     assert item3.price_per_scoop == 2.49
+    assert item1.packaging == "Bowl"

@@ -142,7 +142,7 @@ def main():
         print()
 
     for item in order.order:
-        listed.append([item.name, round(item.calculate_cost(), 2), round(item.calculate_tax(), 2)])
+        listed.append([item.name + " (" + item.packaging + ")", round(item.calculate_cost(), 2), round(item.calculate_tax(), 2)])
         sub_total += item.calculate_cost()
         tax += item.calculate_tax()
 

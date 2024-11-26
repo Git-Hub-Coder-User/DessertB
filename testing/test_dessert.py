@@ -13,3 +13,4 @@ def test_DessertItem():
     assert item1.name == "Pie"
     assert item2.name == "Cake"
     assert item3.name == "Cakepop"
+    assert item1.packaging == "Bag"

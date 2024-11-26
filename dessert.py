@@ -6,11 +6,13 @@ To create this framework, you will implement an inheritance hierarchy of classes
 
 """
 from abc import ABC, abstractmethod
+from packaging import Packaging
 
-class DessertItem(ABC):
+class DessertItem(Packaging):
     def __init__(self, name = ""):
         self.name = name
         self.tax_percent = 7.25
+        self.packaging = None
     
     def get_list(self):
         return []
@@ -29,9 +31,10 @@ class Candy(DessertItem):
         super().__init__(name)
         self.candy_weight = candy_weight
         self.price_per_pound = price_per_pound
+        self.packaging = "Bag"
     
     def __str__(self):
-        return f"{self.name}, {self.candy_weight}lbs, ${self.price_per_pound}/lb, {self.calculate_cost():.2f}, {self.calculate_tax():.2f}"
+        return f"{self.name}, {self.candy_weight}lbs, ${self.price_per_pound}/lb, {self.calculate_cost():.2f}, {self.calculate_tax():.2f}, ({self.packaging})"
     
     def get_list(self):
         # print("CALLED")
@@ -47,9 +50,10 @@ class Cookie(DessertItem):
         super().__init__(name)
         self.quantity = quantity
         self.price_per_dozen = price_per_dozen
+        self.packaging = "Box"
             
     def __str__(self):
-        return f"{self.name}, {self.quantity} cookies, ${self.price_per_dozen}/dozen, {self.calculate_cost():.2f}, {self.calculate_tax():.2f}"
+        return f"{self.name}, {self.quantity} cookies, ${self.price_per_dozen}/dozen, {self.calculate_cost():.2f}, {self.calculate_tax():.2f}, ({self.packaging})"
 
     def get_list(self):
         return [self.name, self.quantity, self.price_per_dozen]
@@ -63,9 +67,10 @@ class IceCream(DessertItem):
         super().__init__(name)
         self.scoop_count = scoop_count
         self.price_per_scoop = price_per_scoop
+        self.packaging = "Bowl"
             
     def __str__(self):
-        return f"{self.name}, {self.scoop_count} scoops, ${self.price_per_scoop}/scoop, {self.calculate_cost():.2f}, {self.calculate_tax():.2f}"
+        return f"{self.name}, {self.scoop_count} scoops, ${self.price_per_scoop}/scoop, {self.calculate_cost():.2f}, {self.calculate_tax():.2f}, ({self.packaging})"
         
     def get_list(self):
         return [self.name, self.scoop_count, self.price_per_scoop]
@@ -79,9 +84,10 @@ class Sundae(IceCream):
         super().__init__(name, scoop_count, price_per_scoop)
         self.topping_name = topping_name
         self.topping_price = topping_price
+        self.packaging = "Boat"
     
     def __str__(self):
-        return f"{self.topping_name} {self.name}, {self.scoop_count} scoops, {self.price_per_scoop}/scoop, {self.calculate_cost():.2f}, {self.calculate_tax():.2f}, {self.topping_name} topping, {self.topping_price}"
+        return f"{self.topping_name} {self.name}, {self.scoop_count} scoops, {self.price_per_scoop}/scoop, {self.calculate_cost():.2f}, {self.calculate_tax():.2f}, {self.topping_name} topping, {self.topping_price}, ({self.packaging})"
 
     def calculate_cost(self):
         cost = self.scoop_count * self.price_per_scoop + self.topping_price * self.price_per_scoop
