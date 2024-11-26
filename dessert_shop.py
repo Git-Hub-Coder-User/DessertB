@@ -17,7 +17,7 @@ class Order:
     def __str__(self):
         string = ""
         for value in self.order:
-            print(value.name)
+            # print(value.name)
             string += str(value) + ", "
 
         return string
