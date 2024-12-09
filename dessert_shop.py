@@ -154,7 +154,7 @@ def main():
     listed.append(["Total items in the order: ","", total_number_of_items_in_the_order])
 
 
-    print(order)
+    # print(order)
     make_receipt(listed, "receipt")
 
 
